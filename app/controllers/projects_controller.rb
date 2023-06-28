@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
       if @project.save
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
+        # create first page automatically
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -49,6 +50,7 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1 or /projects/1.json
   def destroy
+    @project.pages.destroy_all
     @project.destroy
 
     respond_to do |format|

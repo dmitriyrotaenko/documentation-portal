@@ -13,9 +13,11 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        accent: '#c70517',
+        // accent: '#c70517',
+        accent: '#008ef5',
         'accent-light': '#c74451',
-        green: '#11CE74'
+        green: '#11CE74',
+        'grey-light': '#e5e5e5'
       }
     },
   },
