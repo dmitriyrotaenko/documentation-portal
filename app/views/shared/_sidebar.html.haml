@@ -10,7 +10,7 @@
   %nav.list-none.p-2.w-full.flex.flex-col.flex-wrap{"data-hs-accordion-always-open" => ""}
     %ul{class: "space-y-1.5"}
     - @project.pages.each do |page|
-      %li.mb-1
-        = link_to project_page_path(@project, page), class: "flex justify-between font-medium text-sm text-text hover:bg-gray-100 rounded-md p-1 pl-3 #{'text-accent bg-light-accent' if current_page?(project_page_path(@project, page))}" do
+      %li.mb-1.text-text
+        = link_to project_page_path(@project, page), class: "flex justify-between font-medium text-sm hover:bg-gray-100 rounded-md p-1 pl-3  #{'bg-light-accent text-accent hover:bg-light-accent' if current_page?(project_page_path(@project, page))}" do
           = page.title
           %p +
