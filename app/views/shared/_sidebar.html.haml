@@ -7,9 +7,10 @@
 #docs-sidebar.hs-overlay.hs-overlay-open:translate-x-0.-translate-x-full.transition-all.duration-300.transform.hidden.fixed.top-16.left-0.bottom-0.w-64.bg-white.border-r.border-gray-200.pt-7.pb-10.overflow-y-auto.scrollbar-y.lg:block.lg:translate-x-0.lg:right-auto.lg:bottom-0.dark:scrollbar-y.dark:bg-white.dark:border-grey-light{class: "z-[60]"}
   .px-6
     %a.flex-none.text-xl.font-semibold.dark:text-white{"aria-label" => "Brand", href: "javascript:;"} Brand
-  %nav.list-none.p-6.w-full.flex.flex-col.flex-wrap{"data-hs-accordion-always-open" => ""}
+  %nav.list-none.p-2.w-full.flex.flex-col.flex-wrap{"data-hs-accordion-always-open" => ""}
     %ul{class: "space-y-1.5"}
     - @project.pages.each do |page|
-      %li
-        = link_to project_page_path(@project, page), class: "flex items-center py-2 text-sm text-slate-700 rounded-md hover:bg-gray-100.dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300K" do
+      %li.mb-1
+        = link_to project_page_path(@project, page), class: "flex justify-between font-medium text-sm text-text hover:bg-gray-100 rounded-md p-1 pl-3 #{'text-accent bg-light-accent' if current_page?(project_page_path(@project, page))}" do
           = page.title
+          %p +

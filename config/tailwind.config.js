@@ -15,9 +15,11 @@ module.exports = {
       colors: {
         // accent: '#c70517',
         accent: '#008ef5',
-        'accent-light': '#c74451',
+        'light-accent': '#EEF8FE',
+        // 'accent-light': '#c74451',
         green: '#11CE74',
-        'grey-light': '#e5e5e5'
+        'grey-light': '#e5e5e5',
+        text: '#4f5a66'
       }
     },
   },
