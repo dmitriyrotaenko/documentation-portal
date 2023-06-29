@@ -10,6 +10,9 @@ gem "rails", "~> 7.0.5", ">= 7.0.5.1"
 gem "haml-rails", "~> 2.0"
 gem 'html2haml'
 
+# Icons
+gem "font-awesome-sass", "~> 6.4.0"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -30,6 +33,8 @@ gem "stimulus-rails"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
+
+gem 'sass-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
