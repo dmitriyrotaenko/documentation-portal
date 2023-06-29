@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   before_action :set_project
   before_action :set_page, only: %i[ show edit update destroy ]
+  helper_method :new
+
+  include PagesHelper
 
   # GET /pages or /pages.json
   def index
@@ -53,7 +56,8 @@ class PagesController < ApplicationController
     @page.destroy
 
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: "Page was successfully destroyed." }
+      # TODO: Redirect to project
+      format.html { redirect_to root_path, notice: "Page was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -70,6 +74,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:title, :content, :project_id)
+      params.require(:page).permit(:title, :content, :parent_id)
     end
 end

@@ -50,6 +50,7 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1 or /projects/1.json
   def destroy
+    # TODO: dependent: destroy
     @project.pages.destroy_all
     @project.destroy
 
