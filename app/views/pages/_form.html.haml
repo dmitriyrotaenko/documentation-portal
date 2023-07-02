@@ -1,4 +1,4 @@
-= form_with(model: [@project, @page], class: "contents") do |form|
+= form_with(model: [@project, @page], class: "contents", data: { controller: "editor" }) do |form|
   - if page.errors.any?
     #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
       %h2
@@ -11,8 +11,9 @@
     = form.label :title
     = form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
   .my-5
-    = form.label :content
-    = form.text_area :content, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+    #markdown{"data-editor-target": "markdown"}
+  .my-5
     = form.hidden_field :parent_id, value: params[:parent_id]
+    = form.hidden_field :content, {"data-editor-target": "page_content_hidden"}
   .inline
     = form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"

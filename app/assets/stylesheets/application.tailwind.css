@@ -11,3 +11,16 @@
 }
 
 */
+
+
+@layer base {
+  .page_main_content ol, .page_main_content ul {
+    padding: revert;
+    list-style: revert;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: revert;
+    font-size: revert;
+  }
+}
