@@ -12,15 +12,4 @@ module PagesHelper
       end
     end
   end
-
-  def extract_editor_content(content)
-    parsed_content = JSON.parse(content)
-    html = parsed_content["blocks"].map do |block|
-      case block["type"]
-      when "paragraph"
-        "<p>#{block["data"]["text"]}</p>"
-      end
-    end
-    html.join.html_safe
-  end
 end
