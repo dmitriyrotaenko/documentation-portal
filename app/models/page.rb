@@ -8,8 +8,6 @@ class Page < ApplicationRecord
 
   acts_as_list scope: :parent
 
-  validates :title, uniqueness: { scope: :project }
-
   scope :top_level, -> { where(parent_id: nil).order(:position) }
 
   def to_param

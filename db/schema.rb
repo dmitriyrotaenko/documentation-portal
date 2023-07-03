@@ -12,15 +12,16 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_07_03_130001) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "pages", force: :cascade do |t|
+  create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.jsonb "content"
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "parent_id"
+    t.uuid "parent_id"
     t.string "slug"
     t.integer "position"
     t.index ["project_id"], name: "index_pages_on_project_id"
