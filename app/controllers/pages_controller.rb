@@ -5,20 +5,16 @@ class PagesController < ApplicationController
 
   include PagesHelper
 
-  # GET /pages/1 or /pages/1.json
   def show
   end
 
-  # GET /pages/new
   def new
     @page = @project.pages.build
   end
 
-  # GET /pages/1/edit
   def edit
   end
 
-  # POST /pages or /pages.json
   def create
     @page = @project.pages.build(page_params)
 
@@ -33,7 +29,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pages/1 or /pages/1.json
   def update
     respond_to do |format|
       if @page.update(page_params)
@@ -46,7 +41,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # DELETE /pages/1 or /pages/1.json
   def destroy
     @page.destroy
 
@@ -58,7 +52,6 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     def set_page
       @page = Page.find_by(slug: params[:id])
@@ -68,9 +61,7 @@ class PagesController < ApplicationController
       @project = Project.find(params[:project_id])
     end
 
-    # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page)
-            .permit(:title, :content, :parent_id, :position)
+      params.require(:page).permit(:title, :content, :parent_id, :position)
     end
 end

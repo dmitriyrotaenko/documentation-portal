@@ -1,0 +1,12 @@
+%nav.list-none.p-2.w-full.flex.flex-col.flex-wrap{"data-hs-accordion-always-open" => ""}
+  %ul{class: "space-y-1.5"}
+  - @project.pages.top_level.each do |page|
+    %li.text-text
+      .group.truncate.mb-1.flex.justify-between.p-1.font-medium.text-sm.rounded-md.hover:bg-gray-100{class: "#{'bg-light-accent text-accent hover:bg-light-accent' if current_page?(project_page_path(@project, page))}"}
+        = link_to project_page_path(@project, page) do
+          - if page.pages.size > 0
+            %i.fas.fa-chevron-down
+          = page.title
+        = link_to new_project_page_path(@project, parent_id: page.id) do
+          %i.invisible.fa-plus.fa-solid.not-italic.group-hover:visible
+      = render_pages_with_subpages(page.pages)

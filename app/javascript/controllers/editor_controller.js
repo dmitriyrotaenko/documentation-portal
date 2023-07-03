@@ -19,7 +19,7 @@ export default class extends Controller {
       editable: true,
       editorProps: {
         attributes: {
-          class: 'prose prose-sm sm:prose-base m-5 focus:outline-none',
+          class: 'z-1 prose prose-sm sm:prose-base m-5 focus:outline-none',
         },
       }
     });
