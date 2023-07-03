@@ -21,11 +21,11 @@ RSpec.describe Page, type: :model do
     page_3 = create(:page, title: "Page 3")
     expect(page_3.position).to eq(3)
 
-    page_1_1 = page_1.children.create(title: "Page 1.1")
+    page_1_1 = create(:page, title: "Page 1.1", parent: page_1)
     expect(page_1_1.position).to eq(1)
-    page_1_2 = page_1.children.create(title: "Page 1.2")
+    page_1_2 = create(:page, title: "Page 1.2", parent: page_1)
     expect(page_1_2.position).to eq(2)
-    page_3_1 = page_3.children.create(title: "Page 3.1")
+    page_3_1 = create(:page, title: "Page 3.1", parent: page_3)
     expect(page_3_1.position).to eq(1)
   end
 end
