@@ -9,7 +9,7 @@
     %a.flex-none.text-xl.font-semibold.dark:text-white{"aria-label" => "Brand", href: "javascript:;"} Brand
   %nav.list-none.p-2.w-full.flex.flex-col.flex-wrap{"data-hs-accordion-always-open" => ""}
     %ul{class: "space-y-1.5"}
-    - @project.pages.where(parent_id: nil).each do |page|
+    - @project.pages.top_level.each do |page|
       %li.text-text
         .group.truncate.mb-1.flex.justify-between.p-1.font-medium.text-sm.rounded-md.hover:bg-gray-100{class: "#{'bg-light-accent text-accent hover:bg-light-accent' if current_page?(project_page_path(@project, page))}"}
           = link_to project_page_path(@project, page) do
