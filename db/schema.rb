@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_02_205926) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_130001) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "pages", force: :cascade do |t|
-    t.string "title", null: false
-    t.jsonb "content"
+  create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "content"
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "parent_id"
+    t.uuid "parent_id"
+    t.string "slug"
+    t.integer "position"
     t.index ["project_id"], name: "index_pages_on_project_id"
   end
 

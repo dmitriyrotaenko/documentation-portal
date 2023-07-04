@@ -1,25 +1,23 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
 
-  # GET /projects or /projects.json
   def index
     @projects = Project.all
   end
 
-  # GET /projects/1 or /projects/1.json
   def show
+    if (@page = @project.pages.top_level.first)
+      redirect_to project_page_path(@project, @page)
+    else
+      @page = @project.pages.create
+      redirect_to edit_project_page_path(@project, @page)
+    end
   end
 
-  # GET /projects/new
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
-  def edit
-  end
-
-  # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
 
@@ -35,7 +33,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1 or /projects/1.json
   def update
     respond_to do |format|
       if @project.update(project_params)
@@ -48,7 +45,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
   def destroy
     # TODO: dependent: destroy
     @project.pages.destroy_all
@@ -61,12 +57,10 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def project_params
       params.require(:project).permit(:title, :description)
     end
