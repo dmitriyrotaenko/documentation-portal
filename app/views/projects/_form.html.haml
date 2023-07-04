@@ -1,11 +1,11 @@
-= form_with(model: project, class: "contents") do |form|
-  - if project.errors.any?
+= form_with(model: @project, class: "contents") do |form|
+  - if @project.errors.any?
     #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
       %h2
-        = pluralize(project.errors.count, "error")
+        = pluralize(@project.errors.count, "error")
         prohibited this project from being saved:
       %ul
-        - project.errors.each do |error|
+        - @project.errors.each do |error|
           %li= error.full_message
   .my-5
     = form.label :title

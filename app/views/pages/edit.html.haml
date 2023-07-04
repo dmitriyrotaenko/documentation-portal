@@ -1,4 +1,5 @@
 .mx-auto.w-full{:class => "md:w-2/3"}
+  %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
   %h1.font-bold.text-4xl Editing page
   = render "form", page: @page
   = link_to "Back to pages", project_page_path(@project, @page), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"

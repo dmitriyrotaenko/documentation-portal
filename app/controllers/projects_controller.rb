@@ -6,8 +6,13 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  # GET /projects/1 or /projects/1.json
   def show
+    if (@page = @project.pages.top_level.first)
+      redirect_to project_page_path(@project, @page)
+    else
+      @page = @project.pages.create(title: "Untitled")
+      redirect_to edit_project_page_path(@project, @page)
+    end
   end
 
   # GET /projects/new
