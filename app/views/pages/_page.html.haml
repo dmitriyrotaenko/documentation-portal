@@ -1,11 +1,8 @@
-%div{:id => "#{dom_id page}", :class => "page_main_content"}
+= render "shared/sidebar"
+.page_main_content.ml-64.w-full
   %p.my-5
     %strong.block.font-medium.mb-1 Title:
     = @page.title
   %p.my-5
     %strong.block.font-medium.mb-1 Content:
     = @page.content&.html_safe
-  - if action_name != "show"
-    = link_to "Show this page", project_page_path(@project, page), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
-    = link_to 'Edit this page', edit_project_page_path(@project, page, parent_id: params[:parent_id]), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"
-    %hr.mt-6/

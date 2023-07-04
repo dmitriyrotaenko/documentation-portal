@@ -5,14 +5,8 @@ class PagesController < ApplicationController
 
   include PagesHelper
 
-  def show
-  end
-
   def new
     @page = @project.pages.build
-  end
-
-  def edit
   end
 
   def create
