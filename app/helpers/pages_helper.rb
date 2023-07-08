@@ -1,7 +1,7 @@
 module PagesHelper
   def render_pages_with_subpages(pages)
     return if pages.blank?
-
+    # TODO: move to partial
     content_tag(:ul, class: "pl-5") do
       pages.each do |page|
         concat(content_tag(
@@ -12,7 +12,7 @@ module PagesHelper
       end
     end
   end
-
+  # TODO: move to model/decorator?
   def display_page_title(page)
     page.title.blank? ? "<i>Untitled</i>".html_safe : page.title
   end

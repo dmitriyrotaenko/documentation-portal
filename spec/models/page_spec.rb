@@ -7,8 +7,9 @@ RSpec.describe Page, type: :model do
   end
 
   describe "slugs" do
+    # Rewrite to let
+    page = create(:page, title: "New page for Test")
     it "when creates a slug" do
-      page = create(:page, title: "New page for Test")
       expect(page.slug).to match("new-page-for-test")
       page.update(title: "new tItLe for PAGE")
       expect(page.slug).to match("new-title-for-page")

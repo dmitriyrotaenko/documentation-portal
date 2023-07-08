@@ -1,0 +1,24 @@
+%section
+  .flex.flex-col.items-center.justify-center.px-6.py-8.mx-auto.md:h-screen.lg:py-0
+    %a.flex.items-center.mb-6.text-2xl.font-semibold.text-gray-900.light:text-white{href: "#"}
+      %img.w-8.h-8.mr-2{alt: "logo", src: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"}/
+      SOFTSWISS
+    .w-full.bg-white.rounded-lg.shadow.light:border.md:mt-0.sm:max-w-md.xl:p-0.light:bg-gray-800.light:border-gray-700
+      .p-6.space-y-4.md:space-y-6.sm:p-8
+        %h1.text-xl.font-bold.leading-tight.tracking-tight.text-gray-900.md:text-2xl.light:text-white
+          Sign in to your account
+        = form_with model: @user, url: session_path(@user), class: "space-y-4.md:space-y-6" do | form |
+          %div.mb-2
+            = form.label :email, class: "block mb-2 text-sm font-medium text-gray-900 light:text-white"
+            = form.email_field :email, autocomplete: "email", placeholder: "chris.doe@example.com", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500"
+          %div.mb-1
+            = form.label :password, class: "block mb-2 text-sm font-medium text-gray-900 light:text-white"
+            = form.password_field :password, autocomplete: "off", placeholder: "•••••••••", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500"
+          .flex.items-center.justify-between.mb-3
+            .flex.items-start
+              .flex.items-center.h-5
+                %input#remember.w-4.h-4.border.border-gray-300.rounded.bg-gray-50.focus:ring-3.focus:ring-primary-300.light:bg-gray-700.light:border-gray-600.light:focus:ring-primary-600.light:ring-offset-gray-800{"aria-describedby" => "remember", type: "checkbox"}/
+              .ml-3.text-sm
+                %label.text-gray-500.light:text-gray-300{for: "remember"} Remember me
+            %a.text-sm.font-medium.text-primary-600.hover:underline.light:text-primary-500{href: "#"} Forgot password?
+          = form.submit "Sign in", class: "w-full text-white bg-accent hover:cursor-pointer focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm py-2 text-center light:bg-primary-600 light:hover:bg-primary-700 light:focus:ring-primary-800"
