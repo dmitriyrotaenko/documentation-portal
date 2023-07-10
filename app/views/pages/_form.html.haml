@@ -8,8 +8,7 @@
         - page.errors.each do |error|
           %li= error.full_message
   .my-5
-    = form.label :title
-    = form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+    = form.text_field :title, placeholder: "Title", class: "w-full p-1 rounded-md border-none placeholder:text-[#939eae] text-3xl font-semibold"
   .my-5
     #markdown{"data-editor-target": "markdown"}
   .my-5

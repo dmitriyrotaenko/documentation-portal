@@ -19,7 +19,7 @@ module.exports = {
         // 'light-accent': '#c29196',
         green: '#11CE74',
         'grey-light': '#e5e5e5',
-        text: '#4f5a66'
+        'text-primary': '#384248'
       }
     },
   },

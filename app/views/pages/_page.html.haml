@@ -1,8 +1,7 @@
 = render "shared/sidebar"
-.page_main_content.ml-64.w-full
-  %p.my-5
-    %strong.block.font-medium.mb-1 Title:
-    = @page.title
+.page_main_content.ml-64.w-full.p-6{class: "w-9/12"}
+  %h1.my-5
+    = @page.title || "Untitled"
   %p.my-5
     %strong.block.font-medium.mb-1 Content:
     = @page.content&.html_safe
