@@ -90,3 +90,5 @@ end
 
 gem "acts_as_list", "~> 1.1"
 gem "rolify", "~> 6.0"
+
+gem "administrate", "~> 0.18.0"
