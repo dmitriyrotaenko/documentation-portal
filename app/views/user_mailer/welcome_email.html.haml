@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Welcome to Documentation portal, #{@user.email}
+    %p
+      Your password: #{@password}
+    %p
+      To login to the site, just follow this link: #{root_path}.

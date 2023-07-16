@@ -3,9 +3,11 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    authorize @projects
   end
 
   def show
+    authorize @project
     if (@page = @project.pages.top_level.first)
       redirect_to project_page_path(@project, @page)
     else

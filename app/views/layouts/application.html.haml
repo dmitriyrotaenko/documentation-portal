@@ -12,6 +12,8 @@
   %body
     - if user_signed_in?
       = render "shared/navbar"
+      - flash.each do |type, msg|
+        %div= msg
       %main.container.flex
         = yield
     - else

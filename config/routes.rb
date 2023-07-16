@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "projects#index"
+
   namespace :admin do
       resources :roles
       resources :projects
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
       root to: "roles#index"
     end
   devise_for :users
-  root "projects#index"
 
   resources :projects do
       resources :pages
