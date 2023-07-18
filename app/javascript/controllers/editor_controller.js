@@ -4,9 +4,12 @@ export default class extends Controller {
   static targets = ['content_editor']
 
   connect() {
-    this.editor = this.content_editorTarget;
-
-    console.log(this.editor)
+    tinymce.init({
+      selector: ".tinymce",
+      promotion: false,
+      toolbar: 'fullscreen',
+      plugins: 'fullscreen'
+    });
   }
 
   saveEditorData(event) {
