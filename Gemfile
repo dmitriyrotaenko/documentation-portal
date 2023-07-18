@@ -89,3 +89,4 @@ group :test do
 end
 
 gem "acts_as_list", "~> 1.1"
+gem "tinymce-rails", "~> 6.6"
