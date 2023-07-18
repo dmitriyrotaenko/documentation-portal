@@ -94,3 +94,4 @@ gem "rolify", "~> 6.0"
 gem "administrate", "~> 0.18.0"
 
 gem "pundit", "~> 2.3"
+gem "tinymce-rails", "~> 6.6"

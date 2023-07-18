@@ -9,6 +9,8 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload"
+    = tinymce_assets
+    %script{src: "/assets/tinymce.js", type: "text/javascript"}
   %body
     - if user_signed_in?
       = render "shared/navbar"

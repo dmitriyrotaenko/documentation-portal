@@ -1,45 +1,27 @@
-import { Controller } from "@hotwired/stimulus"
-import Highlight from "highlight.js"
-
-import { Editor } from '@tiptap/core'
-import StarterKit from '@tiptap/starter-kit'
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["markdown", "page_content_hidden"]
+  static targets = ['content_editor']
 
   connect() {
-    this.contentEditor = new Editor({
-      // config to a separate file
-      element: this.markdownTarget,
-      extensions: [
-        StarterKit
-      ],
-      content: this.getPageCurrentContent(),
-      autofocus: true,
-      editable: true,
-      editorProps: {
-        attributes: {
-          class: 'z-1 prose prose-sm sm:prose-base m-5 focus:outline-none',
-        },
-      }
-    });
+    this.editor = this.content_editorTarget;
 
-    this.element.addEventListener("submit", this.saveEditorData.bind(this));
+    console.log(this.editor)
   }
 
   saveEditorData(event) {
-    event.preventDefault();
-    const pageForm = this.element
-    const editorContent = this.contentEditor.getHTML()
-    const dataToSave = editorContent === "" ? "<p></p>" : editorContent;
-    const hiddenContentField = this.page_content_hiddenTarget;
-
-    hiddenContentField.value = dataToSave;
-
-    pageForm.submit();
+    // event.preventDefault();
+    // const pageForm = this.element
+    // const editorContent = this.contentEditor.getHTML()
+    // const dataToSave = editorContent === "" ? "<p></p>" : editorContent;
+    // const hiddenContentField = this.page_content_hiddenTarget;
+    //
+    // hiddenContentField.value = dataToSave;
+    //
+    // pageForm.submit();
   }
 
   getPageCurrentContent() {
-    return this.page_content_hiddenTarget.value;
+    // return this.page_content_hiddenTarget.value;
   }
 }
