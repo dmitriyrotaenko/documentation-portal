@@ -3,6 +3,9 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    #
+    # @search = Project.ransack(params[:search])
+    # @projects = @search.result(distinct: true)
   end
 
   def show

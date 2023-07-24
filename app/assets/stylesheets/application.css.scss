@@ -14,3 +14,14 @@
  *= require_self
  */
 @import "font-awesome";
+
+mark {
+  text-decoration: underline;
+  background-color: transparent;
+  color: #c70517;
+  display: inline;
+}
+
+a:hover > mark {
+  color: inherit;
+}

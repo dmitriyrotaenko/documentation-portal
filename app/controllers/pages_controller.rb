@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   before_action :set_project
   before_action :set_page, only: %i[ show edit update destroy ]
+
   helper_method :new
 
   include PagesHelper
@@ -31,6 +32,23 @@ class PagesController < ApplicationController
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @pages = @project.pages.search_by_title(params[:search])
+    else
+      @pages = []
+    end
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update(
+          "suggestions",
+          partial: "shared/search_results",
+          locals: {project: @project, pages: @pages}
+        )
       end
     end
   end

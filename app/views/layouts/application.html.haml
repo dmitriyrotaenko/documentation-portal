@@ -13,6 +13,7 @@
     %script{src: "/assets/tinymce.js", type: "text/javascript"}
   %body
     - if user_signed_in?
+      = render "shared/search_modal"
       = render "shared/navbar"
       %main.container.flex
         = yield
