@@ -19,13 +19,14 @@ export default class extends Controller {
   closeSearchModal({target, currentTarget}) {
     if(target === currentTarget) {
       this.searchModal.classList.add('hidden');
-      this.clearSearchField();
+      this.clearSearch();
     }
     return;
   }
 
-  clearSearchField() {
+  clearSearch() {
     this.search_fieldTarget.value = "";
+    this.search_suggestionsTarget.innerHTML = "";
   }
 
   debouncedSearch() {
