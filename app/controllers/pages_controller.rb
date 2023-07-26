@@ -58,7 +58,7 @@ class PagesController < ApplicationController
         render turbo_stream: turbo_stream.update(
           "suggestions",
           partial: "shared/search_results",
-          locals: {project: @project, pages: @pages}
+          locals: { pages: @pages}
         )
       end
     end

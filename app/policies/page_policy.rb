@@ -2,7 +2,7 @@ class PagePolicy < ApplicationPolicy
   class Scope < Scope; end
 
   def show?
-    is_admin?
+    true
   end
 
   def create?

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :projects do
       resources :pages do
         collection do
-          # post method is required for working with turbo streams
           post :search
         end
       end

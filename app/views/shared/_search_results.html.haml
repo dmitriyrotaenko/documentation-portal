@@ -4,4 +4,4 @@
   %ul
     - pages.each do |page|
       %li.list-none.bg-white.rounded-md.mb-2
-        = link_to highlight(page.title, params[:search]), project_page_path(project, page), class: "w-full h-full block rounded-md p-4 hover:bg-accent hover:text-white"
+        = link_to highlight(page.title, params[:search]), project_page_path(@project, page), class: "w-full h-full block rounded-md p-4 hover:bg-accent hover:text-white"

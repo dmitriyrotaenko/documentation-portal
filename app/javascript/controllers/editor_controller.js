@@ -5,8 +5,11 @@ export default class extends Controller {
 
   connect() {
     tinymce.init({
-      selector: ".tinymce",
+      selector: '.tinymce',
       promotion: false,
     });
+
+
+    console.log("Editor connected")
   }
 }

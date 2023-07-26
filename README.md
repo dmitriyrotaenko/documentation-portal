@@ -1,24 +1,31 @@
-# README
+# Private ocumentation portal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to run locally
 
-Things you may want to cover:
 
-* Ruby version
+1. Open terminal.
+2. Clone the repo to your computer by running the following command:  
+```bash
+git clone git@github.com:dmitriyrotaenko/documentation-portal.git
+```
+3. Change directory to the cloned repo:  
+```bash
+cd documentation-portal
+```
+4. Install dependencies by running the following command:
+```bash
+gem install bundler && bundle install && npm install
+```
+5. Run migrations via the following command:
+```bash
+rails db:migrate
+```
+6. Launch the app via foreman:
+```bash
+bin/dev
+```
 
-* System dependencies
+## How to run in Docker
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -35,9 +35,9 @@ export default class extends Controller {
       this.search_fieldTarget.form.requestSubmit();
     }, 500);
   }
-
-  disconnect() {
-    this.searchBtn.removeEventListener("click", this.toggleSearchModal.bind(this));
-    this.searchModalBackdrop.removeEventListener("click", this.toggleSearchModal.bind(this));
-  }
+  //
+  // disconnect() {
+  //   this.searchBtn.removeEventListener("click", this.toggleSearchModal.bind(this));
+  //   this.searchModalBackdrop.removeEventListener("click", this.toggleSearchModal.bind(this));
+  // }
 }

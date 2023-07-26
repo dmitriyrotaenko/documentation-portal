@@ -4,4 +4,5 @@
     #search-modal-backdrop.flex.min-h-full.justify-center.p-4.mt-5.text-center.items-start.sm:p-0
       .relative.transform.overflow-hidden.rounded-lg.bg-white.text-left.shadow-xl.transition-all{class: "w-5/12"}
         .bg-gray-100.sm:p-3
-          = render "shared/search_form"
+          - if @project
+            = render "shared/search_form"

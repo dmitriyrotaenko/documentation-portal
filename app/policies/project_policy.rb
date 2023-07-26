@@ -2,11 +2,11 @@ class ProjectPolicy < ApplicationPolicy
   class Scope < Scope; end
 
   def index?
-    is_admin?
+    true
   end
 
   def show?
-    is_admin?
+    true
   end
 
   def create?

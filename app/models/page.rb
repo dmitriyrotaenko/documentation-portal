@@ -9,7 +9,7 @@ class Page < ApplicationRecord
   acts_as_list scope: :parent
 
   scope :top_level, -> { where(parent_id: nil).order(:position) }
-  # In future sort by views
+  # In future sort by views.count
   scope :search_by_title, -> title { where('title ILIKE?', "%#{title}%")}
 
   def to_param
