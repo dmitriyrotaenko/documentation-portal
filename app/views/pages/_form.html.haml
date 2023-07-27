@@ -10,7 +10,9 @@
   .my-5
     = form.text_field :title, placeholder: "Title", class: "w-full p-1 rounded-md border-none placeholder:text-[#939eae] text-3xl font-semibold"
   .my-5
-    = form.text_area :content, :class => "tinymce", data: {"editor-target": "content_editor"}, :rows => 40, :cols => 120
+    %div{data: {"editor-target": "content_editor"}}
+    -# = form.text_area :content, data: {"editor-target": "content_editor"}
+    -# = form.text_area :content, :class => "tinymce", data: {"editor-target": "content_editor"}, :rows => 40, :cols => 120
   .my-5
     = form.hidden_field :parent_id, value: params[:parent_id]
     -# = form.hidden_field :content, {"data-editor-target": "page_content_hidden"}

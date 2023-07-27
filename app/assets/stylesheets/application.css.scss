@@ -25,3 +25,11 @@ mark {
 a:hover > mark {
   color: inherit;
 }
+
+.ProseMirror code {
+  background-color: #2563eb;
+}
+
+.ProseMirror code::after {
+  content: "`"
+}

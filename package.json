@@ -4,6 +4,11 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
+    "@tiptap/core": "^2.0.4",
+    "@tiptap/extension-dropcursor": "^2.0.4",
+    "@tiptap/extension-image": "^2.0.4",
+    "@tiptap/pm": "^2.0.4",
+    "@tiptap/starter-kit": "^2.0.4",
     "autoprefixer": "^9.8.8",
     "esbuild": "^0.18.11",
     "highlight.js": "^11.8.0",
