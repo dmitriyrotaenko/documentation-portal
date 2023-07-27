@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :pages
       resources :users
 
-      root to: "roles#index"
+      root to: "users#index"
     end
   devise_for :users
 
@@ -18,4 +18,6 @@ Rails.application.routes.draw do
         end
       end
   end
+
+  resources :uploads, only: [:create]
 end
