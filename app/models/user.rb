@@ -16,7 +16,7 @@ class User < ApplicationRecord
   private
 
   def assign_default_role
-    self.add_role(:customer) if self.roles.blank?
+    self.add_role("customer") if self.roles.blank?
   end
 
   def generate_password

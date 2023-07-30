@@ -15,7 +15,7 @@ module.exports = {
       colors: {
         accent: '#c70517',
         accent_light: '#c4434e',
-        'light-accent': '#EEF8FE',
+        'light-accent': '#faf5f5',
         // 'red-accent': '#c29196',
         green: '#11CE74',
         'grey-light': '#e5e5e5',

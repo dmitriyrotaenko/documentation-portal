@@ -1,5 +1,5 @@
 class Role < ApplicationRecord
-  AVAILABLE_ROLES = %i(admin customer).freeze
+  AVAILABLE_ROLES = %w(admin customer).freeze
 
   has_and_belongs_to_many :users, :join_table => :users_roles
   

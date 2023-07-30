@@ -8,7 +8,7 @@
             %i.fas.fa-chevron-down
           = display_page_title(page)
         .flex
-          - if current_user.has_role?(:admin)
-            = link_to new_project_page_path(@project, parent_id: page) do
+          - if current_user.has_role?("admin")
+            = link_to new_project_page_path(@project, parent_id: page.id) do
               %i.invisible.fa-plus.fa-solid.not-italic.group-hover:visible
       = render_pages_with_subpages(page.pages)

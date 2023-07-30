@@ -37,7 +37,7 @@ class ApplicationPolicy
   end
 
   def is_admin?
-    @user.has_role?(:admin)
+    @user.has_role?("admin")
   end
 
   class Scope

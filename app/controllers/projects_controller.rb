@@ -11,18 +11,20 @@ class ProjectsController < ApplicationController
     if (@page = @project.pages.top_level.first)
       redirect_to project_page_path(@project, @page)
     else
-      @page = @project.pages.create
+      @page = @project.pages.create(title: "First page in #{@project.title}")
+      authorize @page
       redirect_to edit_project_page_path(@project, @page)
     end
   end
 
   def new
     @project = Project.new
+    authorize @project
   end
 
   def create
     @project = Project.new(project_params)
-
+    authorize @project
     respond_to do |format|
       if @project.save
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
@@ -49,9 +51,9 @@ class ProjectsController < ApplicationController
 
   def destroy
     # TODO: dependent: destroy
+    authorize @project
     @project.pages.destroy_all
     @project.destroy
-
     respond_to do |format|
       format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
       format.json { head :no_content }
