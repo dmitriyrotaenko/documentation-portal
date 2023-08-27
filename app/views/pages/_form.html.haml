@@ -13,6 +13,6 @@
     %div{data: { "editor-target": "content_editor" }}
   .my-5
     = form.hidden_field :parent_id, value: params[:parent_id]
-    -# = form.hidden_field :content, {"data-editor-target": "page_content_hidden"}
+    = form.hidden_field :content, data: { "editor-target": "content_field" }
   .inline
     = form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"
