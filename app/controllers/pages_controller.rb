@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   before_action :set_project
   before_action :set_page, only: %i[ show edit update destroy ]
 
+  protect_from_forgery with: :null_session
+
   helper_method :new
 
   include PagesHelper
@@ -38,6 +40,7 @@ class PagesController < ApplicationController
     authorize @page
     respond_to do |format|
       if @page.update(page_params)
+        @page.file.attach(params[:file])
         format.html { redirect_to project_page_path(@project, @page), notice: "Page was successfully updated." }
         format.json { render :show, status: :ok, location: @page }
       else
@@ -85,6 +88,6 @@ class PagesController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:title, :content, :parent_id, :position)
+      params.require(:page).permit(:title, :content, :parent_id, :position, :file)
     end
 end

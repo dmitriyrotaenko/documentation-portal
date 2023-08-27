@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   root "projects#index"
 
   namespace :admin do
@@ -19,5 +19,5 @@ Rails.application.routes.draw do
       end
   end
 
-  resources :uploads, only: [:create]
+  post "/pages/:id/edit/upload_image", to: "image#upload"
 end

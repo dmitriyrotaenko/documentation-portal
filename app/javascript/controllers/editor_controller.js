@@ -1,27 +1,31 @@
 import { Controller } from "@hotwired/stimulus";
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-import { Image } from "@tiptap/extension-image";
-import { Dropcursor } from "@tiptap/extension-dropcursor";
-
-
+import { Image as TipTapImage } from "@tiptap/extension-image";
 
 export default class extends Controller {
-  static targets = ['content_editor']
+  static targets = ["content_editor"];
 
   connect() {
     this.editor = new Editor({
       element: this.content_editorTarget,
-      extensions: [
-        StarterKit,
-        Image
-      ],
+      // TODO: move to application.yml
+      extensions: [StarterKit, TipTapImage],
       editorProps: {
         attributes: {
           class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none',
         },
-      },
-      content: '<img src="https://images.unsplash.com/photo-1682686581264-c47e25e61d95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"/>'
+        handleDrop: (_, event, _, moved) => {
+          const uploadController = this.application.getControllerForElementAndIdentifier(
+            document.querySelector(".contents"), "upload"
+          );
+          if (uploadController && !moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) {
+            uploadController.handleDrop(event, this);
+            return true;
+          }
+          return false;
+        }
+      }
     });
   }
 }
