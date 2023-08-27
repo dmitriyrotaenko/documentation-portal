@@ -7,9 +7,6 @@ import { application } from "./application";
 import EditorController from "./editor_controller";
 application.register("editor", EditorController);
 
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
-
 import SearchController from "./search_controller";
 application.register("search", SearchController);
 
