@@ -5,6 +5,7 @@ class Page < ApplicationRecord
   belongs_to :project
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :pages, foreign_key: :parent_id, dependent: :destroy
+  # Rewrite to many files attached to page
   has_one_attached :file
 
   acts_as_list scope: :parent
