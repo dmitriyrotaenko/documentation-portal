@@ -1,4 +1,4 @@
-= form_with(model: [@project, @page], class: "contents", data: { controller: "editor upload" }) do |form|
+= form_with(model: [@project, @page], class: "contents", data: { controller: "editor" }) do |form|
   - if @page.errors.any?
     #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
       %h2
@@ -10,9 +10,10 @@
   .my-5
     = form.text_field :title, placeholder: "Title", class: "w-full p-1 rounded-md border-none placeholder:text-[#939eae] text-3xl font-semibold"
   .my-5
-    %div{data: { "editor-target": "content_editor" }}
+    -# %div{data: { "editor-target": "content_editor" }}
+    = form.text_area :content, :class => "tinymce", :rows => 60, :cols => 120
   .my-5
     = form.hidden_field :parent_id, value: params[:parent_id]
-    = form.hidden_field :content, data: { "editor-target": "content_field" }
+    -# = form.hidden_field :content, data: { "editor-target": "content_field" }
   .inline
     = form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"

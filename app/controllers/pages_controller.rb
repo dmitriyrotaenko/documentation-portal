@@ -10,20 +10,20 @@ class PagesController < ApplicationController
 
   def new
     @page = @project.pages.build
-    authorize @page
+    # authorize @page
   end
 
   def show
-    authorize @page
+    # authorize @page
   end
 
   def edit
-    authorize @page
+    # authorize @page
   end
 
   def create
     @page = @project.pages.build(page_params)
-    authorize @page
+    # authorize @page
 
     respond_to do |format|
       if @page.save
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end
 
   def update
-    authorize @page
+    # authorize @page
     respond_to do |format|
       if @page.update(page_params)
         @page.file.attach(params[:file])

@@ -1,12 +1,26 @@
 require 'rails_helper'
 
-RSpec.describe Page do
-  
+RSpec.describe Page, type: :model do
+  it 'has a valid factory' do
+    page = build(:page)
+    expect(page.title.presence).to be_truthy
+  end
 
-  # it "when has a valid factory" do
-  #   page = create(:page)
-  #   expect(page.title.presence).to be_truthy
-  # end
+  describe 'belonging to project' do
+    it 'belongs to project' do
+      page = build(:page)
+      expect(page.project_id.presence).to be_truthy
+    end
+
+    it 'should not save without project' do
+      page = build(:page, project_id: nil)
+      expect(page.save).to be_falsey
+    end
+  end
+  
+  describe 'slugs' do
+    
+  end
 
   # describe "slugs" do
   #   # Rewrite to let

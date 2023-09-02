@@ -5,15 +5,16 @@ class Page < ApplicationRecord
   belongs_to :project
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :pages, foreign_key: :parent_id, dependent: :destroy
-  # Rewrite to many files attached to page
-  has_one_attached :file
+
+  validates :title, uniqueness: { scope: :parent }
+  validates :title, presence: true
 
   acts_as_list scope: :parent
 
   scope :top_level, -> { where(parent_id: nil).order(:position) }
   # In future sort by views.count
   # TODO: remove index
-  scope :search_by_title, -> title { where('title ILIKE?', "%#{title}%")}
+  scope :search_by_title, ->(title) { where('title ILIKE?', "%#{title}%") }
 
   def to_param
     slug

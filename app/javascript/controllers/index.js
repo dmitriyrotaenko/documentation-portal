@@ -9,6 +9,3 @@ application.register("editor", EditorController);
 
 import SearchController from "./search_controller";
 application.register("search", SearchController);
-
-import UploadController from "./upload_controller";
-application.register("upload", UploadController);

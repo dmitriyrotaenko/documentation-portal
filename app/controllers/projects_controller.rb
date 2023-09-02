@@ -3,11 +3,11 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    authorize @projects
+    # authorize @projects
   end
 
   def show
-    authorize @project
+    # authorize @project
     if (@page = @project.pages.top_level.first)
       redirect_to project_page_path(@project, @page)
     else
@@ -19,12 +19,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    authorize @project
+    # authorize @project
   end
 
   def create
     @project = Project.new(project_params)
-    authorize @project
+    # authorize @project
     respond_to do |format|
       if @project.save
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
@@ -51,7 +51,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     # TODO: dependent: destroy
-    authorize @project
+    # authorize @project
     @project.pages.destroy_all
     @project.destroy
     respond_to do |format|
