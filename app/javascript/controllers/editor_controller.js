@@ -10,8 +10,9 @@ export default class extends Controller {
     tinymce.init({
       selector: '.tinymce',
       promotion: false,
-      plugins: 'link textpattern lists codesample image table',
-      toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | link codesample table',
+      plugins: 'link textpattern lists codesample image table fullscreen',
+      toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | link codesample table fullscreen',
+      menubar: false
     });
 
     console.log('Editor controller connected!')

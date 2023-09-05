@@ -4,11 +4,10 @@
     %li.text-text
       .group.mb-1.flex.justify-between.p-1.text-sm.rounded-md.hover:bg-gray-100{class: "#{'bg-light-accent text-accent hover:bg-light-accent' if request.path.include?(page.slug)}"}
         = link_to project_page_path(@project, page) do
-          - if page.pages.size > 0
+          - if page.subpages.size > 0
             %i.fas.fa-chevron-down
           = display_page_title(page)
         .flex
-          -# - if current_user.has_role?("admin")
           = link_to new_project_page_path(@project, parent_id: page.id), data: { turbo: false } do
             %i.invisible.fa-plus.fa-solid.not-italic.group-hover:visible
-      = render_pages_with_subpages(page.pages)
+      = render_pages_with_subpages(page.subpages)

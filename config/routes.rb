@@ -1,4 +1,4 @@
-  Rails.application.routes.draw do
+Rails.application.routes.draw do
   root "projects#index"
 
   namespace :admin do
@@ -11,13 +11,13 @@
     end
   devise_for :users
 
-  resources :projects do
+  resources :projects, path: '' do
       resources :pages do
-        collection do
-          post :search
-        end
+        # collection do
+        #   post :search
+        # end
       end
   end
 
-  post "/pages/:id/edit/upload_image", to: "image#upload"
+
 end

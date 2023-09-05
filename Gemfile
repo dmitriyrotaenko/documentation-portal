@@ -89,10 +89,11 @@ group :test do
   gem 'rspec-rails', '~> 6.0.0'
 end
 
-gem "acts_as_list", "~> 1.1"
 gem "rolify", "~> 6.0"
 
 gem "administrate", "~> 0.18.0"
 
 gem "pundit", "~> 2.3"
 gem "tinymce-rails", "~> 6.6"
+
+gem "acts_as_tree", "~> 2.9"

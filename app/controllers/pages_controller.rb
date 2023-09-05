@@ -40,7 +40,6 @@ class PagesController < ApplicationController
     # authorize @page
     respond_to do |format|
       if @page.update(page_params)
-        @page.file.attach(params[:file])
         format.html { redirect_to project_page_path(@project, @page), notice: "Page was successfully updated." }
         format.json { render :show, status: :ok, location: @page }
       else
@@ -84,10 +83,10 @@ class PagesController < ApplicationController
     end
 
     def set_project
-      @project = Project.find(params[:project_id])
+      @project = Project.find_by(slug: params[:project_id])
     end
 
     def page_params
-      params.require(:page).permit(:title, :content, :parent_id, :position, :file)
+      params.require(:page).permit(:title, :content, :parent_id, :position)
     end
 end

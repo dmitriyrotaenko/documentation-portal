@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project
 
   def index
     @projects = Project.all
@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
       redirect_to project_page_path(@project, @page)
     else
       @page = @project.pages.create(title: "First page in #{@project.title}")
-      authorize @page
+      # authorize @page
       redirect_to edit_project_page_path(@project, @page)
     end
   end
@@ -52,7 +52,6 @@ class ProjectsController < ApplicationController
   def destroy
     # TODO: dependent: destroy
     # authorize @project
-    @project.pages.destroy_all
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
@@ -62,7 +61,7 @@ class ProjectsController < ApplicationController
 
   private
     def set_project
-      @project = Project.find(params[:id])
+      @project = Project.find_by(slug: params[:id])
     end
 
     def project_params
